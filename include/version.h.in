@@ -1,0 +1,9 @@
+#ifndef _version_h
+#define _version_h
+
+/* 8 0 33 */
+#define VERSION_MAJOR     "@VERSION_MAJOR@"
+#define VERSION_MINOR     "@VERSION_MINOR@"
+#define VERSION_PATCH     "@VERSION_PATCH@"
+
+#endif /* _version_h */
