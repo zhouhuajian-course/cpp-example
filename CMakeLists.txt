@@ -13,9 +13,14 @@ configure_file(
     "${PROJECT_BINARY_DIR}/include/version.h"
 )
 
+
+# include_directories("${PROJECT_SOURCE_DIR}/include")
+# add_subdirectory("${PROJECT_SOURCE_DIR}/src")
+
+# 指定头文件搜索目录
+include_directories("${PROJECT_BINARY_DIR}/include")
+
 set(EXECUTABLE_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin")
-add_subdirectory("${PROJECT_SOURCE_DIR}/src")
+add_executable(app "${PROJECT_SOURCE_DIR}/src/main.cc")
 
 
-
-# include_directories("${PROJECT_SOURCE_DIR}/include/")

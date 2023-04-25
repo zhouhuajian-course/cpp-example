@@ -4,11 +4,10 @@
 
 .h.in 输入文件
 
-里面的 @XXX@ 会被相应的值所替换
+里面的 @XXX@ 会被相应的变量值所替换
 输出对应的 .h 文件
 
-例如 include/version.h.in
-
+例如 include/version.h.in -> include/version.h
 
 ## 文件后缀
 
