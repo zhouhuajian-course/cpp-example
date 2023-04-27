@@ -1,5 +1,20 @@
 # CPP Manual
 
+## 代码规范
+
+https://google.github.io/styleguide/cppguide.html
+
+## 引入头文件
+
+include "" 和 <>
+
+自己编写的头文件使用 #include "..."
+标准库和第三方库使用 #include <...>
+
+## cmake 命令文档
+
+https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html
+
 ## cmake 自动生成 配置文件
 
 .h.in 输入文件

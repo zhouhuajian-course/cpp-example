@@ -14,7 +14,7 @@ fi
 
 cd ${buildPath}
 
-cmake ..
+cmake -DGREETING_WORD=hi ..
 
 make
 
