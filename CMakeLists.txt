@@ -22,7 +22,7 @@ GET_CONFIG_VALUE("VERSION_MAJOR" VERSION_MAJOR)
 GET_CONFIG_VALUE("VERSION_MINOR" VERSION_MINOR)
 GET_CONFIG_VALUE("VERSION_PATCH" VERSION_PATCH)
 
-# 设置多个值，分号分割
+# 设置多个值，值最终使用分号连接
 set(GREETING_WORD ${GREETING_WORD} "hello" "hey")
 
 message(STATUS "PROJECT_SOURCE_DIR: ${PROJECT_SOURCE_DIR}")
@@ -34,12 +34,14 @@ configure_file(
     "${PROJECT_BINARY_DIR}/include/version.h"
 )
 
-# include_directories("${PROJECT_SOURCE_DIR}/include")
-# add_subdirectory("${PROJECT_SOURCE_DIR}/src")
-# 指定头文件搜索目录 相当于 gcc -I
+# 指定头文件搜索目录 
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_BINARY_DIR}/include")
+
+aux_source_directory("${PROJECT_SOURCE_DIR}/src" SRC_LIST)
+message(STATUS "所有源码文件：${SRC_LIST}")
+
 set(EXECUTABLE_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin")
-add_executable(app "${PROJECT_SOURCE_DIR}/src/main.cc" "${PROJECT_SOURCE_DIR}/src/unix_timestamp.cc")
+add_executable(app ${SRC_LIST})
 
 

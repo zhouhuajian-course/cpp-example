@@ -1,6 +1,6 @@
 
-#ifndef _UNIX_TIMESTAMP_H
-#define _UNIX_TIMESTAMP_H
+#ifndef INCLUDE_UNIX_TIMESTAMP_H
+#define INCLUDE_UNIX_TIMESTAMP_H
 
 #include <cstdint>
 
