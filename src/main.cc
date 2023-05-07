@@ -2,6 +2,7 @@
 #include "version.h"
 #include "unix_timestamp.h"
 #include "student.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -10,8 +11,26 @@ using namespace std;
 void log(const char*);
 void log(const char* message);
 
+extern "C" int add(int a, int b) {
+  return a + b;
+}
+
+// int main_my_epoll();
+
 int main(int argc, char const *argv[])
 {
+    // C/C++混合编程
+    cout << add(1, 2) << endl;
+
+    // 获取环境变量值
+    char *str;
+    str = getenv("PATH");
+    cout << str << endl;
+    str = getenv("USER");
+    cout << str << endl;
+    str = getenv("HOME");
+    cout << str << endl;
+
     log("Hello World!");
 
     Student stu("zhouhuajian", 18);
@@ -22,4 +41,6 @@ int main(int argc, char const *argv[])
     unix_timestamp ut;
     set_unix_timestamp(&ut);
     std::cout << ut.sec << std::endl;
+
+    // main_my_epoll();
 }

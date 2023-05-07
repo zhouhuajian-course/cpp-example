@@ -38,10 +38,13 @@ configure_file(
 include_directories("${PROJECT_SOURCE_DIR}/include")
 include_directories("${PROJECT_BINARY_DIR}/include")
 
+# 不会递归
 aux_source_directory("${PROJECT_SOURCE_DIR}/src" SRC_LIST)
 message(STATUS "所有源码文件：${SRC_LIST}")
 
 set(EXECUTABLE_OUTPUT_PATH "${PROJECT_BINARY_DIR}/bin")
 add_executable(app ${SRC_LIST})
+add_executable(server "${PROJECT_SOURCE_DIR}/src/epoll/simple_epoll_server.cc")
+add_executable(client "${PROJECT_SOURCE_DIR}/src/epoll/simple_tcp_client.cc")
 
 
