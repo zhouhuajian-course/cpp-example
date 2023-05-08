@@ -16,9 +16,11 @@ extern "C" int add(int a, int b) {
 }
 
 // int main_my_epoll();
+void string_test();
 
 int main(int argc, char const *argv[])
 {
+    string_test();
     // C/C++混合编程
     cout << add(1, 2) << endl;
 
