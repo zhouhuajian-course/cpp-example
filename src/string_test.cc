@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <stdio.h>
+#include <string.h>
 using namespace std;
 
 void string_test()
@@ -11,6 +12,7 @@ void string_test()
     cout << str2 << endl;
     // 转为 C 的 char *
     cout << str.c_str() << endl;
+    cout << strlen(str.c_str()) << endl;
     // 输入输出
     // string s;
     // cin >> s;  

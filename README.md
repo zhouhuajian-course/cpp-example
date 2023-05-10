@@ -2,9 +2,30 @@
 
 https://cplusplus.com/reference/
 
+## 函数或方法默认值
+
+error: default argument given for parameter 1
+
+不能 函数或方法声明和定义同时设置默认值，只需要声明或定义设置一次即可，推荐声明时设置
+
 ## 字符串 string
 
 https://cplusplus.com/reference/string/string/
+
+字符串拼接
+```c++
+string content = "success";  
+// 分多行写，不需要+号，自动拼接
+string responce = "HTTP/1.1 200 OK\r\n" 
+                  "Content-Type: text/html\r\n" 
+                  "Content-Length: ";
+responce += content.length();
+responce += "\r\n\r\n";
+responce += content;
+// 暂时不能使用 responce += content.length() + "..." + "..."
+// 原因不明，可能不支持
+```                            
+
 
 ```
 需要包含 #include <string>
@@ -12,6 +33,27 @@ https://cplusplus.com/reference/string/string/
 length() 获取真实长度
 +或+= 拼接字符串
 下标访问字符 str[i]
+str.c_str() 生成不可改的字符指针 const char* 指向字符串第一个字符，最后有\0 ("test\0")
+使用C语言字符串 需要包含 #include <string.h>
+使用C语言输入输出 需要包含 #include <stdio.h>
+C语言的 strlen 也是 真实长度 不包括\0
+
+可以抽象理解为，实际实现比较复杂，通过vs调试，更容易理解
+class string {
+  private:
+	char* _ptr;						  // 实际存储字符串内容的空间 跟string::c_str()返回的地址一样 
+	size_t _size;					  // 存储字符串当前的容量 
+	size_t _capacity;				// 存储字符串最大容量 
+}
+例如
+string str = "test";
+使用16字节空间存储内容，15个字节可用，最后一个字节必须为\0
+所以 size=4 capacity=15 
+ptr 指向16字节首个字节 
+t e s t \0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0 \0
+
+C语言两种方式表示字符串
+字符数组、字符指针
 ```
 
 ## epoll 多路复用

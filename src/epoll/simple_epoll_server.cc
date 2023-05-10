@@ -78,7 +78,7 @@ int SimpleEpollServer::start()
     // 把 服务端 socket 加入 epoll
     epollAdd(serverSocketFd);
     printf("Server Started!\n");
-    // 死循环
+    // 死循环 event loop
     for (;;)
     { 
         // 等待事件发生 返回发生事件数量 -1一直阻塞，也可设置超时事件
